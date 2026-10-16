@@ -1,0 +1,109 @@
+@use "/src/common/styles/colors" as *;
+@use "/src/common/styles/breakpoints" as *;
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.product {
+  width: 250px;
+  padding: 16px;
+  border: 1px solid $grey100;
+  position: relative;
+  border-radius: 8px;
+  @media screen and (min-width: 960px) {
+    width: 312px;
+    padding: 16px;
+  }
+  * {
+    margin: 0;
+  }
+  &:hover {
+    border: 1px solid $primary;
+  }
+  h3 {
+    color: $primary;
+  }
+  .pic {
+    width: 200px;
+    height: 200px;
+    @media screen and (min-width: 960px) {
+      width: 280px;
+      height: 280px;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .sale {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: $primary;
+    z-index: 1;
+  }
+
+  .cart {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    cursor: pointer;
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+@media (min-width: $tablet-min) and (max-width: $tablet-max) {
+  .products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  .product {
+    width: 550px;
+    padding: 16px;
+    border: 1px solid $grey100;
+    position: relative;
+    border-radius: 8px;
+  }
+  .pic {
+    width: 200px;
+    height: 200px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .category {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+  }
+  .category {
+    top: 20px;
+    right: 20px;
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+}
